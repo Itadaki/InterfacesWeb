@@ -35,44 +35,66 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         </style>
     </head>
     <body>
-        <h2>MP3</h2>
-        BGSOUND
-        <bgsound src="audio/cancion1.mp3" loop="2" volume="20"></bgsound>
-        <hr>
-        EMBED
-        <embed src="audio/cancion1.mp3" type="audio/mpeg" loop="false" controller="false">
-        <hr>
-        OBJECT
-        <object data="audio/cancion1.mp3"></object>
-        
-        <h2>OGG</h2>
-        BGSOUND
-        <bgsound src="audio/cancion2.ogg" loop="2" volume="20"></bgsound>
-        <hr>
-        EMBED
-        <embed src="audio/cancion2.ogg" type="audio/mpeg" loop="false" controller="false">
-        <hr>
-        OBJECT
-        <object data="audio/cancion2.ogg"></object>
-        
-        <h2>WAV</h2>
-        BGSOUND
-        <bgsound src="audio/cancion3.wav" loop="2" volume="20"></bgsound>
-        <hr>
-        EMBED
-        <embed src="audio/cancion3.wav" type="audio/mpeg" loop="false" controller="false">
-        <hr>
-        OBJECT
-        <object data="audio/cancion3.wav"></object>
-        
-        <h2>WMA</h2>
-        BGSOUND
-        <bgsound src="audio/cancion4.wma" loop="2" volume="20"></bgsound>
-        <hr>
-        EMBED
-        <embed src="audio/cancion4.wma" type="audio/mpeg" loop="false" controller="false">
-        <hr>
-        OBJECT
-        <object data="audio/cancion4.wma"></object>
+        <!--        <h2>MP3</h2>
+                BGSOUND
+                <bgsound src="audio/cancion1.mp3" loop="2" volume="20"></bgsound>
+                <hr>
+                EMBED
+                <embed src="audio/cancion1.mp3" type="audio/mpeg" loop="false" controller="false">
+                <hr>
+                OBJECT
+                <object data="audio/cancion1.mp3"></object>
+                
+                <h2>OGG</h2>
+                BGSOUND
+                <bgsound src="audio/cancion2.ogg" loop="2" volume="20"></bgsound>
+                <hr>
+                EMBED
+                <embed src="audio/cancion2.ogg" type="audio/mpeg" loop="false" controller="false">
+                <hr>
+                OBJECT
+                <object data="audio/cancion2.ogg"></object>
+                
+                <h2>WAV</h2>
+                BGSOUND
+                <bgsound src="audio/cancion3.wav" loop="2" volume="20"></bgsound>
+                <hr>
+                EMBED
+                <embed src="audio/cancion3.wav" type="audio/mpeg" loop="false" controller="false">
+                <hr>
+                OBJECT
+                <object data="audio/cancion3.wav"></object>
+                
+                <h2>WMA</h2>
+                BGSOUND
+                <bgsound src="audio/cancion4.wma" loop="2" volume="20"></bgsound>
+                <hr>
+                EMBED
+                <embed src="audio/cancion4.wma" type="audio/mpeg" loop="false" controller="false">
+                <hr>
+                OBJECT
+                <object data="audio/cancion4.wma"></object>-->
+
+        <h2>AUDIO</h2>
+        <audio controls autoplay>
+            <source src="audio/cancion1.mp3" type="audio/mpeg">
+            <source src="audio/cancion2.ogg" type="audio/ogg">
+            <source src="audio/cancion3.wav" type="audio/ogg">
+            Your browser does not support this audio format.
+        </audio>
+
+        <audio controls id="player">
+            <source src="audio/cancion1.mp3" type="audio/mpeg">
+            <source src="audio/cancion2.ogg" type="audio/ogg">
+            <source src="audio/cancion3.wav" type="audio/ogg">
+            <embed height="50" width="100" src="audio/cancion1.mp3">
+        </audio>
+
+        <div>
+            <input name="boton" type="button" value="Play" onclick="document.getElementById('player').play()">
+            <input name="boton" type="button" value="Pausa" onclick="document.getElementById('player').pause()">
+            <input name="boton" type="button" value="+Vol" onclick="if (document.getElementById('player').volume<1){document.getElementById('player').volume += 0.1}">
+            <input name="boton" type="button" value="-Vol" onclick="if (document.getElementById('player').volume>0){document.getElementById('player').volume -= 0.1}">
+        </div>
     </body>
 </html>
